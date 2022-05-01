@@ -24,6 +24,7 @@ public class RegistrationSystem implements ActionListener {
 	static String result = "", course="", state="",query,dbname,dbpass,signupPass, loginName,signupName,FName,loginPass,MName,LName,GradeMark,place,Snum,Sname;
 	static JButton signButton,submit,login,alt1Button,alt2Button,logout,courses,Adm,CompSci,Biz,Global;
 	static JPasswordField signpass,password;
+	static JLabel comp,busi,globe;
 	int rollno,dbid;
 	int count=-1;
 	int check=0;
@@ -44,6 +45,38 @@ public class RegistrationSystem implements ActionListener {
 		PCompSci.setLayout(null);
 		PCompSci.setBounds(500, 100, 500, 500);
 		
+		
+		comp= new JLabel();
+		comp.setBounds(100, 60, 400, 40);
+		comp.setText("WELCOME TO ALU REGISTRATION SYSTEM");
+		
+		Adm= new JButton();
+		Adm.setBounds(20, 50, 110, 30);
+		Adm.setText("MY STATUS");
+		Adm.addActionListener(this);
+		
+		CompSci= new JButton();
+		CompSci.setBounds(130, 50, 110, 30);
+		CompSci.setText("COMPUTER");
+		CompSci.addActionListener(this);
+		
+		
+		Global= new JButton();
+		Global.setBounds(240, 50, 110, 30);
+		Global.setText("GLOBAL.C");
+		Global.addActionListener(this);
+		
+		Biz= new JButton();
+		Biz.setBounds(350, 50, 110, 30);
+		Biz.setText("BUSINESS");
+		Biz.addActionListener(this);
+		
+		PCompSci.add(comp);
+		PCompSci.add(Adm);
+		PCompSci.add(Global);
+		PCompSci.add(CompSci);
+		PCompSci.add(Biz);
+		
 		PCompSci.setVisible(true);
 		
 	}
@@ -51,6 +84,39 @@ public class RegistrationSystem implements ActionListener {
 		PBiz = new JFrame("BUSINESS STUDIES");
 		PBiz.setLayout(null);
 		PBiz.setBounds(500, 100, 500, 500);
+		
+		busi= new JLabel();
+		busi.setBounds(100, 60, 400, 40);
+		busi.setText("WELCOME TO ALU REGISTRATION SYSTEM");
+		
+		Adm= new JButton();
+		Adm.setBounds(20, 50, 110, 30);
+		Adm.setText("MY STATUS");
+		Adm.addActionListener(this);
+		
+		CompSci= new JButton();
+		CompSci.setBounds(130, 50, 110, 30);
+		CompSci.setText("COMPUTER");
+		CompSci.addActionListener(this);
+		
+		
+		Global= new JButton();
+		Global.setBounds(240, 50, 110, 30);
+		Global.setText("GLOBAL.C");
+		Global.addActionListener(this);
+		
+		Biz= new JButton();
+		Biz.setBounds(350, 50, 110, 30);
+		Biz.setText("BUSINESS");
+		Biz.addActionListener(this);
+		
+		
+		
+		PBiz.add(busi);
+		PBiz.add(Adm);
+		PBiz.add(Global);
+		PBiz.add(CompSci);
+		PBiz.add(Biz);
 		
 		PBiz.setVisible(true);
 		
@@ -60,6 +126,36 @@ public class RegistrationSystem implements ActionListener {
 		PGlobal.setLayout(null);
 		PGlobal.setBounds(500, 100, 500, 500);
 		
+		globe= new JLabel();
+		globe.setBounds(100, 60, 400, 40);
+		globe.setText("WELCOME TO ALU REGISTRATION SYSTEM");
+		
+		Adm= new JButton();
+		Adm.setBounds(20, 50, 110, 30);
+		Adm.setText("MY STATUS");
+		Adm.addActionListener(this);
+		
+		CompSci= new JButton();
+		CompSci.setBounds(130, 50, 110, 30);
+		CompSci.setText("COMPUTER");
+		CompSci.addActionListener(this);
+		
+		
+		Global= new JButton();
+		Global.setBounds(240, 50, 110, 30);
+		Global.setText("GLOBAL.C");
+		Global.addActionListener(this);
+		
+		Biz= new JButton();
+		Biz.setBounds(350, 50, 110, 30);
+		Biz.setText("BUSINESS");
+		Biz.addActionListener(this);
+		
+		PGlobal.add(globe);
+		PGlobal.add(Adm);
+		PGlobal.add(Global);
+		PGlobal.add(CompSci);
+		PGlobal.add(Biz);
 		PGlobal.setVisible(true);
 	}
 	
@@ -363,8 +459,7 @@ public class RegistrationSystem implements ActionListener {
 		status.setLayout(null);
 		status.setBounds(50, 100, 500, 500);
 		
-		Fintro = new JPanel();
-		Fintro.setBounds(40, 40, 00, 40);
+		
 		
 		
 		Adm= new JButton();
@@ -449,12 +544,10 @@ public class RegistrationSystem implements ActionListener {
 		lastname.add(lname);
 		credentials.add(passwordText);
 		
-		status.add(Fintro);
 		status.add(firstname);
 		status.add(midname);
 		status.add(lastname);
 		status.add(credentials);
-		status.add(courses);
 		status.add(Adm);
 		status.add(Global);
 		status.add(CompSci);
@@ -718,47 +811,47 @@ public class RegistrationSystem implements ActionListener {
 			
 		}
 		if (e.getSource()== Adm) {
-			if(PCompSci!=null)
+			if(CompSci.isShowing()==true)
 				PCompSci.dispose();
-			else if(PBiz!=null)
+			else if(Biz.isShowing()==true)
 				PBiz.dispose();
-			else if(PGlobal!=null)
+			else if(Global.isShowing()==true)
 				PGlobal.dispose();
-			else if(status != null)
+			else if(Adm.isShowing()==true)
 				status.dispose();
 			placer(Sname,srollno,GradeMark,place);
 		}
 		if (e.getSource()== Biz) {
-			if(PCompSci!=null)
+			if(CompSci.isShowing()==true)
 				PCompSci.dispose();
-			else if(PBiz!=null)
+			else if(Biz.isShowing()==true)
 				PBiz.dispose();
-			else if(PGlobal!=null)
+			else if(Global.isShowing()==true)
 				PGlobal.dispose();
-			else if(status != null)
+			else if(Adm.isShowing()==true)
 				status.dispose();
 			CBiz();
 		}
 		
 		if (e.getSource()== Global) {
-			if(PCompSci!=null)
+			if(CompSci.isShowing()==true)
 				PCompSci.dispose();
-			else if(PBiz!=null)
+			else if(Biz.isShowing()==true)
 				PBiz.dispose();
-			else if(PGlobal!=null)
+			else if(Global.isShowing()==true)
 				PGlobal.dispose();
-			else if(status != null)
+			else if(Adm.isShowing()==true)
 				status.dispose();
 			CGlobal();
 		}
 		if (e.getSource()== CompSci) {
-			if(PCompSci!=null)
+			if(CompSci.isShowing()==true)
 				PCompSci.dispose();
-			else if(PBiz!=null)
+			else if(Biz.isShowing()==true)
 				PBiz.dispose();
-			else if(PGlobal!=null)
+			else if(Global.isShowing()==true)
 				PGlobal.dispose();
-			else if(status != null)
+			else if(Adm.isShowing()==true)
 				status.dispose();
 			CCompSci();
 		}
