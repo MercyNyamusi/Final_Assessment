@@ -39,7 +39,7 @@ public class RegistrationSystem implements ActionListener {
 		new RegistrationSystem("SIGN UP");
 	
 	}
-	
+	//Lists Computer Science students
 	public void CCompSci() {
 		title.setText("ALU COMPUTER SCIENCE STUDENTS");
 		status.getContentPane().removeAll();
