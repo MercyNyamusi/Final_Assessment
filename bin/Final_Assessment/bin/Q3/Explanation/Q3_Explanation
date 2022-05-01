@@ -1,0 +1,11 @@
+Can a class inherit multiple classes in java? justify your answer.
+
+No a class cannot inherit multiple classes due to the complexity and ambiguity that may result when there exists methods with the same signature in both the superclasses 
+and subclass. On calling the method, the compiler cannot determine which class method to be called and even on calling which class method gets the priority. 
+
+
+Can a class implement multiple interfaces? justify your answer.
+
+Yes a class can implement multiple interfaces. Unlike in multiple inheritance when a class implements more than one 
+interface and both the implemented interfaces contain default methods with the same method signature, the implementing class can explicitly specify which default method is to be used, 
+or it should override the default method using super keyword. 
