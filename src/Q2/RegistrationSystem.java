@@ -1,4 +1,5 @@
 package Q2;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.beans.Statement;
@@ -20,141 +21,60 @@ public class RegistrationSystem implements ActionListener {
 	static JFrame signin, signup, status,register,courseDisplay,PAdm,PCompSci,PBiz,PGlobal;
 	static JPanel text,credentials,intro, Fintro,titleText,alt1,alt2,firstname,midname,lastname;	
 	static JTextField name,fnameText,mnameText,lnameText,markText,signame;
-	static JLabel title, label, nameText, Mess,passwordText,altText1,altText2,fname,mname,lname;
-	static String result = "", course="", state="",query,dbname,dbpass,signupPass, loginName,signupName,FName,loginPass,MName,LName,GradeMark,place,Snum,Sname;
+	static JLabel title, label, nameText, Mess,passwordText,altText1,altText2,fname,mname,lname,studentName,id,nameTitle,idTitle;
+	static String result = "", course="", Admstatus="",state="",query,dbname,dbpass,signupPass, loginName,signupName,FName,loginPass,MName,LName,GradeMark,Snum,Sname;
 	static JButton signButton,submit,login,alt1Button,alt2Button,logout,courses,Adm,CompSci,Biz,Global;
 	static JPasswordField signpass,password;
 	static JLabel comp,busi,globe;
 	int rollno,dbid;
 	int count=-1;
 	int check=0;
-	ResultSet ans,prod,tmp;
-	String srollno,stored;
+	int number;
+	ResultSet ans,prod,tmp,answer;
+	String srollno,stored,retrieve,enrol,degree;
+	String[] place;
 	
-	
-	
+		
 	public static void main(String[] args) {
 		new RegistrationSystem("SIGN UP");
 	
 	}
 	
 	public void CCompSci() {
-		PCompSci = new JFrame("COMPUTER SCIENCE");
-		PCompSci.setLayout(null);
-		PCompSci.setBounds(500, 100, 500, 500);
+		title.setText("ALU COMPUTER SCIENCE STUDENTS");
+		status.getContentPane().removeAll();
+		status.repaint();
+		status.add(title);
+		status.add(Adm);
+		status.add(Global);
+		status.add(CompSci);
+		status.add(Biz);
 		
-		
-		comp= new JLabel();
-		comp.setBounds(100, 60, 400, 40);
-		comp.setText("WELCOME TO ALU REGISTRATION SYSTEM");
-		
-		Adm= new JButton();
-		Adm.setBounds(20, 50, 110, 30);
-		Adm.setText("MY STATUS");
-		Adm.addActionListener(this);
-		
-		CompSci= new JButton();
-		CompSci.setBounds(130, 50, 110, 30);
-		CompSci.setText("COMPUTER");
-		CompSci.addActionListener(this);
-		
-		
-		Global= new JButton();
-		Global.setBounds(240, 50, 110, 30);
-		Global.setText("GLOBAL.C");
-		Global.addActionListener(this);
-		
-		Biz= new JButton();
-		Biz.setBounds(350, 50, 110, 30);
-		Biz.setText("BUSINESS");
-		Biz.addActionListener(this);
-		
-		PCompSci.add(comp);
-		PCompSci.add(Adm);
-		PCompSci.add(Global);
-		PCompSci.add(CompSci);
-		PCompSci.add(Biz);
-		
-		PCompSci.setVisible(true);
-		
+	
 	}
+	
 	public void CBiz() {
-		PBiz = new JFrame("BUSINESS STUDIES");
-		PBiz.setLayout(null);
-		PBiz.setBounds(500, 100, 500, 500);
+		title.setText("ALU BUSINESS STUDIES STUDENTS");
+		status.getContentPane().removeAll();
+		status.repaint();
+		status.add(title);
+		status.add(Adm);
+		status.add(Global);
+		status.add(CompSci);
+		status.add(Biz);
 		
-		busi= new JLabel();
-		busi.setBounds(100, 60, 400, 40);
-		busi.setText("WELCOME TO ALU REGISTRATION SYSTEM");
-		
-		Adm= new JButton();
-		Adm.setBounds(20, 50, 110, 30);
-		Adm.setText("MY STATUS");
-		Adm.addActionListener(this);
-		
-		CompSci= new JButton();
-		CompSci.setBounds(130, 50, 110, 30);
-		CompSci.setText("COMPUTER");
-		CompSci.addActionListener(this);
-		
-		
-		Global= new JButton();
-		Global.setBounds(240, 50, 110, 30);
-		Global.setText("GLOBAL.C");
-		Global.addActionListener(this);
-		
-		Biz= new JButton();
-		Biz.setBounds(350, 50, 110, 30);
-		Biz.setText("BUSINESS");
-		Biz.addActionListener(this);
-		
-		
-		
-		PBiz.add(busi);
-		PBiz.add(Adm);
-		PBiz.add(Global);
-		PBiz.add(CompSci);
-		PBiz.add(Biz);
-		
-		PBiz.setVisible(true);
 		
 	}
+	
 	public void CGlobal() {
-		PGlobal = new JFrame("GLOBAL CHALLENGES");
-		PGlobal.setLayout(null);
-		PGlobal.setBounds(500, 100, 500, 500);
-		
-		globe= new JLabel();
-		globe.setBounds(100, 60, 400, 40);
-		globe.setText("WELCOME TO ALU REGISTRATION SYSTEM");
-		
-		Adm= new JButton();
-		Adm.setBounds(20, 50, 110, 30);
-		Adm.setText("MY STATUS");
-		Adm.addActionListener(this);
-		
-		CompSci= new JButton();
-		CompSci.setBounds(130, 50, 110, 30);
-		CompSci.setText("COMPUTER");
-		CompSci.addActionListener(this);
-		
-		
-		Global= new JButton();
-		Global.setBounds(240, 50, 110, 30);
-		Global.setText("GLOBAL.C");
-		Global.addActionListener(this);
-		
-		Biz= new JButton();
-		Biz.setBounds(350, 50, 110, 30);
-		Biz.setText("BUSINESS");
-		Biz.addActionListener(this);
-		
-		PGlobal.add(globe);
-		PGlobal.add(Adm);
-		PGlobal.add(Global);
-		PGlobal.add(CompSci);
-		PGlobal.add(Biz);
-		PGlobal.setVisible(true);
+		title.setText("ALU GLOBAL CHALLENGES STUDENTS");
+		status.getContentPane().removeAll();
+		status.repaint();
+		status.add(title);
+		status.add(Adm);
+		status.add(Global);
+		status.add(CompSci);
+		status.add(Biz);
 	}
 	
 	public void signIn(String Mess2){
@@ -248,6 +168,7 @@ public class RegistrationSystem implements ActionListener {
 		
 		
 	}
+	
 	public RegistrationSystem(String Mess1){
 		//title of the frame
 		signup = new JFrame("SIGN UP");
@@ -346,6 +267,7 @@ public class RegistrationSystem implements ActionListener {
 		
 		
 	}
+	
 	public void register(){
 		register = new JFrame("REGISTRATION");
 		register.setLayout(null);
@@ -452,12 +374,90 @@ public class RegistrationSystem implements ActionListener {
 		
 		
 	}
-	public void placer(String SName, String SRoll,String SMark, String SCourse){
+	
+	public void reject(String SName, String SRoll,String SMark, String SCourse) {
 		status = new JFrame("ADMISSION STATUS");
 		status.setLayout(null);
 		status.setBounds(50, 100, 500, 500);
 		
+		title.setBounds(80, 50, 500, 40);
 		
+		
+		//Name
+		firstname = new JPanel();
+		firstname.setLayout(null);
+		firstname.setBounds(40, 110, 500, 40);
+		
+		fname=new JLabel();
+		fname.setLayout(null);
+		fname.setBounds(40, 0,500, 30);
+		String sname = "Student Name: " +SName;
+		fname.setText(sname);		
+		
+		//Roll NO
+		midname = new JPanel();
+		midname.setLayout(null);
+		midname.setBounds(40, 160, 500, 40);
+		
+		mname=new JLabel();
+		mname.setLayout(null);
+		mname.setBounds(40, 0, 500, 30);
+		String sno = "Roll No: " +SRoll;
+		mname.setText(sno);	
+		
+		
+		
+		// Grade
+		lastname = new JPanel();
+		lastname.setLayout(null);
+		lastname.setBounds(40, 210, 500, 40);
+		
+		lname=new JLabel();
+		lname.setLayout(null);
+		lname.setBounds(40, 0, 500, 30);
+		String smark = "Mark: " +SMark;
+		lname.setText(smark);
+		
+		
+		
+		
+		//Course
+		credentials = new JPanel();
+		credentials.setLayout(null);		
+		credentials.setBounds(40, 260, 500, 40);
+		
+		passwordText = new JLabel();		
+		passwordText.setLayout(null);
+		passwordText.setBounds(40, 0, 500, 30);
+		String scourse = "Status: " +SCourse;
+		passwordText.setText(scourse);
+		
+	
+		
+		logout=new JButton("LOGOUT");
+		logout.setBounds(200, 340, 100, 30);
+		logout.addActionListener(this);
+
+		
+		firstname.add(fname);
+		midname.add(mname);
+		lastname.add(lname);
+		credentials.add(passwordText);
+		
+		status.add(title);
+		status.add(firstname);
+		status.add(midname);
+		status.add(lastname);
+		status.add(credentials);
+		
+		status.add(logout);
+		
+		status.setVisible(true);
+	}
+	public void placer(String SName, String SRoll,String SMark, String SCourse){
+		status = new JFrame("ADMISSION STATUS");
+		status.setLayout(null);
+		status.setBounds(50, 100, 500, 500);
 		
 		
 		Adm= new JButton();
@@ -564,6 +564,7 @@ public class RegistrationSystem implements ActionListener {
 			java.sql.Statement Stmt= Conn.createStatement();
 
 			ResultSet res= Stmt.executeQuery(query);
+			
 			return res;	
 			
 		} catch (SQLException e) {
@@ -574,6 +575,7 @@ public class RegistrationSystem implements ActionListener {
 		}
 		
 	}
+	
 	public int saveLogin(String username, String password){
 		int find_entry = check_entry(username);
 		if(find_entry == 0) {		
@@ -602,8 +604,7 @@ public class RegistrationSystem implements ActionListener {
 			Connection Conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/registartionsystem_javasummative", "root", "");
 			if (Conn!=null){
 				java.sql.Statement Stmt= Conn.createStatement();
-				int res= Stmt.executeUpdate(query);
-				
+				int res= Stmt.executeUpdate(query);				
 				return res;
 			}
 			else {
@@ -643,7 +644,6 @@ public class RegistrationSystem implements ActionListener {
 		return -1;
 	}
 	
-	
 	public int verification(String username, String password){
 		query = "SELECT * FROM login_details WHERE UserName='"+username+"' and Password ='"+password+"'";
 		
@@ -675,16 +675,54 @@ public class RegistrationSystem implements ActionListener {
 		return -1;
 	}
 	
-	public void saveDetails(int ID,String firstname, String middlename, String lastname, String grade,String Course){
-		query ="INSERT INTO student_details(ID,FirstName, MiddleName, LastName, Mark, Course)VALUES ('"+ID+"','"+firstname+"', '"+middlename+"', '"+lastname+"', '"+grade+"','"+Course+"')";
+	public void saveDetails(int ID,String firstname, String middlename, String lastname, String grade,String Course,String enrolment){
+		query ="INSERT INTO student_details(ID,FirstName, MiddleName, LastName, Mark, Course,Status)VALUES ('"+ID+"','"+firstname+"', '"+middlename+"', '"+lastname+"', '"+grade+"','"+Course+"','"+enrolment+"')";
 		int count =store(query);
 	}
+	
 	public ResultSet getDetails(int ID){
 		query = "select * from student_details WHERE ID='"+ID+"'";
 		ans = connect(query);		
 		return ans;
 						
 	}
+	
+	public void displayStudents(int rows, String[][] details) {
+		JPanel title = new JPanel();
+		title.setBounds(50, 150, 300,30);
+		title.setLayout(new GridLayout(1,2,10,10));
+		
+		nameTitle = new JLabel();
+		idTitle = new JLabel();
+		
+		idTitle.setText("Roll No");
+		nameTitle.setText("Student Name");
+		
+		title.add(idTitle);
+		title.add(nameTitle);
+		
+		
+		Fintro=new JPanel();
+		Fintro.setBounds(50, 190, 300,(30*rows));
+		Fintro.setLayout(new GridLayout(rows,2,10,10));
+		JLabel[] namelabel = new JLabel[rows];
+		JLabel[] idlabel = new JLabel[rows];
+			
+		for (int i = 0;i<rows;i++) {			
+			namelabel[i] = new JLabel();
+			idlabel[i] = new JLabel();	
+			
+			idlabel[i].setText(details[i][0]);
+			namelabel[i].setText(details[i][1]);
+			Fintro.add(idlabel[i]);
+			Fintro.add(namelabel[i]);	
+			
+		}
+		status.add(title);
+		status.add(Fintro);
+		status.setVisible(true);
+	}
+	
 	public void showDetails(ResultSet value){
 		
 		try {
@@ -694,38 +732,103 @@ public class RegistrationSystem implements ActionListener {
 				MName = value.getString("MiddleName");
 				LName= value.getString("LastName");
 				GradeMark=value.getString("Mark");
-				place=value.getString("Course");
+				degree=value.getString("Course");
+				enrol=value.getString("Status");
+				
 			}		
 			srollno ="2022/0"+ Integer.toString(rollno);
 			Snum=srollno;			
 			Sname =FName+" "+ MName +" "+LName;
-			
-			
-			placer(Sname,srollno,GradeMark,place);
+			if (enrol.equals("Enrolled")) {
+				placer(Sname,srollno,GradeMark,degree);
+			}
+			else if(enrol.equals("Not Enrolled")){
+				reject(Sname,srollno,GradeMark,enrol);
+			}
+			else
+				System.out.println("No match");
 			}
 			catch (SQLException e1) {
 				// TODO Auto-generated catch block
 				System.err.println("Unsuccessful Details Capture");
 			}
 	}
-	
- 	public String classifier(int mark) {
-		if (mark>=18 && mark <=20) 
-			course= "Computer Science";
-		
-		else if (mark>=15 && mark <=17) 
-			course= "Global Challenges";
-		
-		else if (mark>=12 && mark <=14)
-			course= "Business Studies";
-		
-		else 
-			course= "Sorry! Your mark score is below admission requirements.";
-		
-		return course;
+
+	public String[][] students(int len,String course) {
+		int counter=0;		
+		retrieve = "select * from student_details WHERE Course='"+course+"'";
+		answer=connect(retrieve);
+		try {
+			String[] details_list = new String[2], final_list[] =new String[len][2];
+			while(answer.next()) {
+				rollno = answer.getInt("ID");				
+				FName = answer.getString("FirstName");
+				MName = answer.getString("MiddleName");
+				LName= answer.getString("LastName");
+				
+				srollno ="2022/0"+ Integer.toString(rollno);
+				Snum=srollno;			
+				Sname =FName+" "+ MName +" "+LName;				
+				details_list[0] = Snum;
+				details_list[1] = Sname;
+				final_list[counter][0] = details_list[0];	
+				final_list[counter][1] = details_list[1];
+				counter++;
+			}	
+			
+			return final_list;
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return null;
 		
 	}
+	
+	public int rows(String course) {
+		retrieve = "select COUNT(*) AS count from student_details WHERE Course='"+course+"'";
+		answer=connect(retrieve);
+		try {
+			while(answer.next()) {
+				number = answer.getInt("count");
+				return number;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return -1;		
+	}
+	
+ 	public String[] classifier(int mark) {
+ 		String[] output = new String[2];
+		if (mark>=18 && mark <=20) {
+			course= "Computer Science";
+			Admstatus="Enrolled";
+			
+		}
+		else if (mark>=15 && mark <=17) {
+			course= "Global Challenges";
+			Admstatus="Enrolled";
+		}
+		else if (mark>=12 && mark <=14) {
+			course= "Business Studies";
+			Admstatus="Enrolled";
+		}
+		else {
+			course= "Sorry! Your mark score is below admission requirements.";
+			Admstatus="Not Enrolled";
+		}
+		output[0] =course;
+		output[1]=Admstatus;
+		return output;
+		
+	}
+ 	
+ 	
 	@Override
+	
+	
 	public void actionPerformed(ActionEvent e) {
 		//Choosing Sign up
 		if (e.getSource()== alt1Button) {
@@ -789,7 +892,7 @@ public class RegistrationSystem implements ActionListener {
 		//logging out
 		if (e.getSource()== logout) {
 			status.dispose();
-			new RegistrationSystem("SIGN UP");
+			signIn("SIGN IN");
 		}
 		
 		
@@ -800,58 +903,72 @@ public class RegistrationSystem implements ActionListener {
 			LName= lnameText.getText();
 			GradeMark=markText.getText();
 			int newMark=Integer.valueOf(GradeMark);
-			place = classifier(newMark);			
-			saveDetails(dbid, FName,MName,LName,GradeMark,place);
+			place = classifier(newMark);
+			degree=place[0];
+			enrol=place[1];
+			
+			saveDetails(dbid, FName,MName,LName,GradeMark,degree,enrol);
 			register.dispose();
 			
 			ans= getDetails(dbid);
 			showDetails(ans);
 			
 		}
-		if (e.getSource()== Adm) {
-			if(CompSci.isShowing()==true)
-				PCompSci.dispose();
-			else if(Biz.isShowing()==true)
-				PBiz.dispose();
-			else if(Global.isShowing()==true)
-				PGlobal.dispose();
-			else if(Adm.isShowing()==true)
-				status.dispose();
-			placer(Sname,srollno,GradeMark,place);
+		if (e.getSource()== Adm) {	
+			status.dispose();
+			placer(Sname,srollno,GradeMark,degree);
 		}
 		if (e.getSource()== Biz) {
-			if(CompSci.isShowing()==true)
-				PCompSci.dispose();
-			else if(Biz.isShowing()==true)
-				PBiz.dispose();
-			else if(Global.isShowing()==true)
-				PGlobal.dispose();
-			else if(Adm.isShowing()==true)
-				status.dispose();
-			CBiz();
-		}
+			int num = rows("Business Studies");
+			if(num>-1) {
+			String[][] results = students(num,"Business Studies");
+//			System.out.println(results);
+			if(results!=null) {
+				title.setBounds(100, 100, 400, 40);
+				CBiz();
+				displayStudents(num,results);
+			}
+			else
+				System.err.print("Could not retrieve records");
+			}
+			else
+				System.err.print("Could not retrieve record count");
 		
-		if (e.getSource()== Global) {
-			if(CompSci.isShowing()==true)
-				PCompSci.dispose();
-			else if(Biz.isShowing()==true)
-				PBiz.dispose();
-			else if(Global.isShowing()==true)
-				PGlobal.dispose();
-			else if(Adm.isShowing()==true)
-				status.dispose();
-			CGlobal();
+		}
+		if (e.getSource()== Global) { 
+			int num = rows("Global Challenges");
+			if(num>-1) {
+			String[][] results = students(num,"Global Challenges");
+//			System.out.println(results);
+			if(results!=null) {
+				title.setBounds(100, 100, 400, 40);
+				CGlobal();
+				displayStudents(num,results);
+			}
+			else
+				System.err.print("Could not retrieve records");
+			}
+			else
+				System.err.print("Could not retrieve record count");
+		
+			
 		}
 		if (e.getSource()== CompSci) {
-			if(CompSci.isShowing()==true)
-				PCompSci.dispose();
-			else if(Biz.isShowing()==true)
-				PBiz.dispose();
-			else if(Global.isShowing()==true)
-				PGlobal.dispose();
-			else if(Adm.isShowing()==true)
-				status.dispose();
-			CCompSci();
+			int num = rows("Computer Science");
+			if(num>-1) {
+			String[][] results = students(num,"Computer Science");
+//			System.out.println(results);
+			if(results!=null) {
+				title.setBounds(100, 100, 400, 40);
+				CCompSci();
+				displayStudents(num,results);
+			}
+			else
+				System.err.print("Could not retrieve records");
+			}
+			else
+				System.err.print("Could not retrieve record count");
+			
 		}
 	}
 }

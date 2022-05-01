@@ -15,12 +15,15 @@ public class testSQL {
 			String query;
 			Conn=DriverManager.getConnection("jdbc:mysql://localhost:3306/registartionsystem_javasummative", "root", "");
 			java.sql.Statement Stmt= Conn.createStatement();
-			String Name = "MercyNyamusi";
-			String word ="123456789";
-			int output = Stmt.executeUpdate("INSERT INTO login_details(UserName, Password)VALUES ('"+Name+"', '"+word+"')");
-			System.out.println(output);
-			ResultSet res= Stmt.executeQuery("SELECT UserName FROM login_details WHERE UserName = '"+Name+"' and Password ='"+word+"'");
-			System.out.println(res);
+//			String Name = "MercyNyamusi";
+//			String word ="123456789";
+//			int output = Stmt.executeUpdate("INSERT INTO login_details(UserName, Password)VALUES ('"+Name+"', '"+word+"')");
+//			System.out.println(output);
+			ResultSet res= Stmt.executeQuery("select COUNT(*) AS count from student_details WHERE Course='Computer Science'");
+			while(res.next()) {
+				System.out.println(res.getInt("count"));
+			}
+			
 			
 		}			
 			
