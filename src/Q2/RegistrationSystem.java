@@ -35,9 +35,7 @@ public class RegistrationSystem implements ActionListener {
 	
 	public static void main(String[] args) {
 		new RegistrationSystem("SIGN UP");
-		
-		
-		
+	
 	}
 	
 	public void CCompSci() {
