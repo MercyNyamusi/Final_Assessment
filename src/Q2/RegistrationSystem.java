@@ -569,7 +569,7 @@ public class RegistrationSystem implements ActionListener {
 			
 		} catch (SQLException e) {
 			
-			System.err.println("connect" + e.getMessage());
+//			System.err.println("connect" + e.getMessage());
 		
 			return null;
 		}
@@ -611,8 +611,8 @@ public class RegistrationSystem implements ActionListener {
 				return -1;
 			}
 		} catch (SQLException e) {
-			System.err.println(e.getMessage());
-			System.err.println("Unsuccessful SignUp Upload");
+//			System.err.println(e.getMessage());
+//			System.err.println("Unsuccessful SignUp Upload");
 		
 		}
 		return -1;
@@ -639,7 +639,7 @@ public class RegistrationSystem implements ActionListener {
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.err.println("Problem here: "+e.getMessage());
+//			System.err.println("Problem here: "+e.getMessage());
 		}
 		return -1;
 	}
@@ -670,7 +670,7 @@ public class RegistrationSystem implements ActionListener {
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
-			System.err.println("Login Issue: "+e.getMessage());
+//			System.err.println("Login Issue: "+e.getMessage());
 		}
 		return -1;
 	}
@@ -745,12 +745,12 @@ public class RegistrationSystem implements ActionListener {
 			else if(enrol.equals("Not Enrolled")){
 				reject(Sname,srollno,GradeMark,enrol);
 			}
-			else
-				System.out.println("No match");
-			}
+			
+			
+		}
 			catch (SQLException e1) {
 				// TODO Auto-generated catch block
-				System.err.println("Unsuccessful Details Capture");
+//				System.err.println("Unsuccessful Details Capture");
 			}
 	}
 
@@ -868,7 +868,7 @@ public class RegistrationSystem implements ActionListener {
 				}
 				catch (SQLException e1) {
 						// TODO Auto-generated catch block
-					System.err.println("prod" +e1.getMessage());
+//					System.err.println("prod" +e1.getMessage());
 				}		
 											
 			}
@@ -928,12 +928,12 @@ public class RegistrationSystem implements ActionListener {
 				CBiz();
 				displayStudents(num,results);
 			}
-			else
-				System.err.print("Could not retrieve records");
+//			else
+//				System.err.print("Could not retrieve records");
 			}
-			else
-				System.err.print("Could not retrieve record count");
-		
+//			else
+//				System.err.print("Could not retrieve record count");
+//		
 		}
 		if (e.getSource()== Global) { 
 			int num = rows("Global Challenges");
@@ -945,11 +945,11 @@ public class RegistrationSystem implements ActionListener {
 				CGlobal();
 				displayStudents(num,results);
 			}
-			else
-				System.err.print("Could not retrieve records");
+//			else
+//				System.err.print("Could not retrieve records");
 			}
-			else
-				System.err.print("Could not retrieve record count");
+//			else
+//				System.err.print("Could not retrieve record count");
 		
 			
 		}
@@ -963,14 +963,10 @@ public class RegistrationSystem implements ActionListener {
 				CCompSci();
 				displayStudents(num,results);
 			}
-			else
-				System.err.print("Could not retrieve records");
+//			else
+//				System.err.print("Could not retrieve records");
 			}
-			else
-				System.err.print("Could not retrieve record count");
 			
 		}
 	}
 }
-
-	
